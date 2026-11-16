@@ -135,10 +135,73 @@ def test_milestone_2():
         tiny_model.train(["a", "b", "c"])
 
 
+# ---------------------------------------------------------------------------
 # Milestone 3: Develop a text generation feature that suggests words based on input.
-@pytest.mark.skip(reason="remove this line when you start milestone 3")
+# ---------------------------------------------------------------------------
 def test_milestone_3():
-    raise NotImplementedError("write the test for milestone 3")
+    """Milestone 3: next-word suggestion and text generation work correctly."""
+    model = milestone_2()
+
+    # --- 1. milestone_3() returns a list of strings ------------------------
+    suggestions = milestone_3("patient presented")
+    assert isinstance(suggestions, list), "milestone_3() must return a list"
+    assert len(suggestions) > 0, "must return at least one suggestion"
+    assert all(isinstance(w, str) for w in suggestions), "all suggestions must be strings"
+
+    # --- 2. suggest_next_words returns k results by default ----------------
+    results = suggest_next_words(model, "patient presented to the clinic")
+    assert isinstance(results, list)
+    assert len(results) == 5, f"Default k=5 expected, got {len(results)}"
+
+    # --- 3. All suggestions are known vocabulary words ---------------------
+    for word in results:
+        assert word in model.vocab, f"Suggested word '{word}' not in model vocab"
+
+    # --- 4. Custom k is respected ------------------------------------------
+    for k in (1, 3, 10):
+        r = suggest_next_words(model, "patient", k=k)
+        assert len(r) == k, f"Expected {k} results, got {len(r)}"
+
+    # --- 5. Results are ordered most-probable first ------------------------
+    # Re-score and confirm ordering matches model probabilities
+    tokens_in = preprocess_corpus("patient presented to the clinic")
+    context = extract_context(tokens_in, model.n)
+    top_pairs = model.top_next_words(context, k=5)
+    expected_order = [w for w, _ in top_pairs]
+    assert results == expected_order, "suggest_next_words must return words in descending probability order"
+
+    # --- 6. Works on mixed-case / punctuated raw input ---------------------
+    raw_results = suggest_next_words(model, "Patient Presented To The Clinic!!!")
+    assert isinstance(raw_results, list)
+    assert len(raw_results) == 5
+
+    # --- 7. Works when input is empty (graceful fallback) ------------------
+    empty_results = suggest_next_words(model, "", k=3)
+    assert isinstance(empty_results, list)
+    assert len(empty_results) == 3
+
+    # --- 8. extract_context trims to n-1 words correctly ------------------
+    ctx = extract_context(["a", "b", "c", "d"], n=3)
+    assert ctx == ("c", "d"), f"Expected ('c', 'd'), got {ctx}"
+
+    # --- 9. extract_context handles tokens shorter than n-1 ---------------
+    short_ctx = extract_context(["only"], n=3)
+    assert short_ctx == ("only",), f"Expected ('only',), got {short_ctx}"
+
+    # --- 10. generate_text produces a string with correct word count -------
+    output = generate_text(model, "patient presented", num_words=5)
+    assert isinstance(output, str), "generate_text() must return a str"
+    output_tokens = output.split()
+    # seed "patient presented" = 2 words + 5 generated = 7 total
+    assert len(output_tokens) == 7, (
+        f"Expected 7 tokens in generated text, got {len(output_tokens)}: '{output}'"
+    )
+
+    # --- 11. generate_text output starts with preprocessed seed words ------
+    seed_tokens = preprocess_corpus("patient presented")
+    assert output.startswith(" ".join(seed_tokens)), (
+        "Generated text must begin with the seed words"
+    )
 
 
 # Milestone 4: Create a CLI for users to interact with the suggestion engine.

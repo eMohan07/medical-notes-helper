@@ -303,10 +303,144 @@ def milestone_2(n: int = 2) -> NgramModel:
     return build_ngram_model(tokens, n=n)
 
 
-# --- Milestone 3: Develop a text generation feature that suggests words based on input.
-# Hint: Next-word prediction logic
-def milestone_3():  # TODO(milestone 3)
-    raise NotImplementedError("TODO(milestone 3)")
+# ---------------------------------------------------------------------------
+# Milestone 3: Develop a text generation feature that suggests words based on input.
+# ---------------------------------------------------------------------------
+
+
+def extract_context(tokens: list[str], n: int) -> tuple[str, ...]:
+    """Extract the (n-1)-word context from the tail of *tokens*.
+
+    Takes the last ``n - 1`` tokens from *tokens* and returns them as a
+    tuple ready to be used as a lookup key in :class:`NgramModel`.  If
+    *tokens* has fewer than ``n - 1`` elements the entire list is used
+    (shorter context), padded implicitly by whatever the model assigns.
+
+    Parameters
+    ----------
+    tokens:
+        Sequence of already-typed / already-processed words.
+    n:
+        Order of the n-gram model that will consume the context.
+
+    Returns
+    -------
+    tuple[str, ...]
+        The ``(n-1)``-word context as a tuple.
+    """
+    context_size = n - 1
+    return tuple(tokens[-context_size:]) if len(tokens) >= context_size else tuple(tokens)
+
+
+def suggest_next_words(
+    model: NgramModel,
+    input_text: str,
+    k: int = 5,
+) -> list[str]:
+    """Suggest the top-*k* next words for *input_text*.
+
+    Pipeline
+    --------
+    1. **Preprocess** the raw input string with :func:`preprocess_corpus`
+       so it matches the vocabulary format used during training (lowercase,
+       alphabetic only).
+    2. **Extract context** — take the last ``n - 1`` tokens as the lookup
+       key.
+    3. **Score** every vocabulary word with the smoothed model probability.
+    4. **Return** the top-*k* words (strings only, no probabilities).
+
+    If the preprocessed input is empty (e.g. the user typed only
+    punctuation or numbers) the context tuple is empty ``()`` and the
+    model falls back to unigram-like smoothed probabilities.
+
+    Parameters
+    ----------
+    model:
+        A trained :class:`NgramModel`.
+    input_text:
+        Raw string typed by the user (may contain punctuation / mixed
+        case — it is normalised internally).
+    k:
+        Number of suggestions to return.  Defaults to 5.
+
+    Returns
+    -------
+    list[str]
+        Ordered list of up to *k* suggested next words, most probable first.
+
+    Examples
+    --------
+    >>> model = milestone_2()
+    >>> suggest_next_words(model, "patient presented to the")
+    ['clinic', 'physician', 'attending', ...]
+    """
+    tokens = preprocess_corpus(input_text)
+    context = extract_context(tokens, model.n)
+    top_pairs = model.top_next_words(context, k=k)
+    return [word for word, _ in top_pairs]
+
+
+def generate_text(
+    model: NgramModel,
+    seed_text: str,
+    num_words: int = 10,
+) -> str:
+    """Generate a continuation of *seed_text* word-by-word.
+
+    At each step the most probable next word is chosen (greedy decoding)
+    and appended to the running sequence.  The updated sequence is then
+    used as context for the following step, so the generation is
+    auto-regressive.
+
+    Parameters
+    ----------
+    model:
+        A trained :class:`NgramModel`.
+    seed_text:
+        Starting phrase to continue.
+    num_words:
+        Number of additional words to generate.  Defaults to 10.
+
+    Returns
+    -------
+    str
+        The original seed followed by the generated words, joined by spaces.
+    """
+    tokens = preprocess_corpus(seed_text)
+    if not tokens:
+        tokens = []
+
+    for _ in range(num_words):
+        context = extract_context(tokens, model.n)
+        next_candidates = model.top_next_words(context, k=1)
+        if not next_candidates:
+            break
+        best_word, _ = next_candidates[0]
+        tokens.append(best_word)
+
+    return " ".join(tokens)
+
+
+def milestone_3(input_text: str = "patient presented", k: int = 5) -> list[str]:
+    """Entry point for Milestone 3.
+
+    Trains the n-gram model (via :func:`milestone_2`) then returns the
+    top-*k* next-word suggestions for *input_text*.
+
+    Parameters
+    ----------
+    input_text:
+        Raw text typed by the user.
+    k:
+        How many suggestions to return.
+
+    Returns
+    -------
+    list[str]
+        Top-*k* predicted next words, most probable first.
+    """
+    model = milestone_2()
+    return suggest_next_words(model, input_text, k=k)
 
 
 # --- Milestone 4: Create a CLI for users to interact with the suggestion engine.
