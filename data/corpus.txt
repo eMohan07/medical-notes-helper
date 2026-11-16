@@ -1,0 +1,89 @@
+# Anonymized Administrative Medical Notes Corpus
+# All patient names, dates, IDs, and identifiable information have been replaced
+# with generic placeholders. This corpus is for language model training only.
+
+Patient presented to the clinic for a routine follow-up appointment. Chief complaint was mild shortness of breath on exertion. Vital signs were recorded as within normal limits. Blood pressure was noted as stable. Heart rate was regular and within acceptable range. Temperature was afebrile. Oxygen saturation was satisfactory on room air.
+
+Medical history includes hypertension and type two diabetes mellitus. Patient reported adherence to prescribed medications. Current medications include antihypertensive therapy and oral hypoglycemic agents. No known drug allergies were reported. Social history is unremarkable. Family history is significant for cardiovascular disease.
+
+Physical examination revealed a well-nourished patient in no acute distress. Respiratory examination demonstrated clear lung fields bilaterally. Cardiovascular examination showed regular rate and rhythm without murmurs. Abdominal examination was soft and non-tender. Extremities showed no edema. Neurological examination was grossly intact.
+
+Assessment and plan were discussed with the patient. Diagnosis of controlled hypertension was confirmed. Diabetes management was reviewed and found to be satisfactory. Lab results from recent bloodwork were within acceptable parameters. Hemoglobin A1c levels indicated adequate glycemic control. Lipid panel results were reviewed and noted to be within target range.
+
+Follow-up appointment was scheduled for three months. Patient was counseled on lifestyle modifications including dietary changes and exercise. Smoking cessation was discussed and resources were provided. Patient verbalized understanding of the treatment plan. Prescription refills were provided for all current medications. Referral to dietitian was placed for nutritional counseling.
+
+Discharge summary indicates the patient was admitted for observation following complaints of chest pain. Cardiac workup was performed and revealed no acute changes on electrocardiogram. Troponin levels were monitored and remained within normal limits. Echocardiogram was completed and showed preserved ejection fraction. Patient was hemodynamically stable throughout the admission period.
+
+Nursing notes document that the patient was cooperative and oriented to person, place, and time. Pain was assessed using the standard pain scale and rated as moderate. Pain management protocol was initiated and patient reported improvement. Medication administration was completed as ordered and documented accordingly. Patient tolerated oral intake without difficulty.
+
+Operative report indicates the procedure was performed under general anesthesia without complications. Surgeon confirmed the operative site, patient identity, and procedure prior to incision. Standard sterile technique was maintained throughout the procedure. Estimated blood loss was minimal. Patient was transferred to the post-anesthesia care unit in stable condition.
+
+Consultation was requested from the cardiology department. Cardiologist reviewed the patient chart and pertinent test results. Recommendations were provided for further cardiac monitoring. Echocardiography was recommended as an outpatient study. Medication adjustments were suggested based on clinical findings. Follow-up with cardiology clinic was arranged within four weeks.
+
+Radiology report for chest x-ray indicates no acute cardiopulmonary process identified. Lung fields appear clear bilaterally. Heart size is within normal limits. No pleural effusion is identified. Bony structures appear intact. No significant interval change compared to prior imaging study.
+
+Laboratory results indicate complete blood count within reference range. White blood cell count is within normal limits. Hemoglobin and hematocrit values are acceptable. Platelet count is within normal range. Comprehensive metabolic panel demonstrates normal electrolyte levels. Kidney function tests show creatinine within acceptable limits. Liver function tests are within normal parameters.
+
+Patient education was provided regarding the diagnosis and management plan. Written instructions were given to the patient at time of discharge. Patient demonstrated understanding by verbally repeating key instructions. Emergency contact information was provided and patient was instructed to seek care if symptoms worsen. Follow-up appointment details were communicated clearly.
+
+Medication reconciliation was completed upon admission and at discharge. Home medications were reviewed and cross-referenced with current orders. Discrepancies were identified and resolved with the prescribing physician. Patient was counseled on new medications and potential side effects. Pharmacy consultation was available and utilized for complex medication management.
+
+Clinical documentation indicates the patient was screened for fall risk upon admission. Risk assessment tool was completed and appropriate precautions were implemented. Bed alarms were activated and call light was placed within reach. Patient and family were educated on fall prevention strategies. No falls occurred during the admission period.
+
+Wound care documentation reflects daily assessment and dressing changes performed. Wound appearance was recorded including size, depth, and drainage characteristics. Signs of infection were monitored and not observed during the documentation period. Wound healing was progressing appropriately per nursing assessment. Wound care orders were followed as prescribed by the treating physician.
+
+Respiratory therapy notes indicate patient required supplemental oxygen upon admission. Oxygen was titrated based on oxygen saturation readings. Breathing treatments were administered as ordered and tolerated well by patient. Pulmonary hygiene measures were encouraged and implemented. Patient was weaned from supplemental oxygen prior to discharge.
+
+Social work assessment was completed to identify discharge planning needs. Patient support system was evaluated and found to be adequate. Home environment was assessed for safety concerns. Community resources were identified and referrals were placed as appropriate. Discharge planning conference was held with patient and family members.
+
+Nutrition assessment was completed by the registered dietitian. Dietary history was obtained and nutritional needs were calculated. Appropriate diet was ordered based on medical diagnosis and patient preferences. Patient tolerated meals and demonstrated adequate oral intake. Nutritional supplements were provided to meet caloric requirements.
+
+Physical therapy evaluation was completed and goals were established. Functional mobility was assessed and baseline measurements recorded. Therapeutic exercises were initiated and progressed based on patient tolerance. Assistive device training was provided as clinically indicated. Patient demonstrated safe mobility techniques prior to discharge.
+
+Occupational therapy assessment identified deficits in activities of daily living. Adaptive equipment was recommended and training was provided. Cognitive screening was performed and results documented. Home assessment recommendations were made to improve patient safety. Patient and caregiver were educated on compensatory strategies.
+
+Pharmacy review of medication orders was completed for appropriateness and safety. Drug interactions were evaluated and no significant interactions identified. Renal dosing adjustments were made based on current kidney function values. Medication allergies were verified and documented in the patient record. Patient counseling regarding medication administration was provided at discharge.
+
+Emergency department triage assessment noted patient arrived via ambulance. Chief complaint upon arrival was acute onset of left-sided weakness. Glasgow coma scale score was assessed and documented. Neurological assessment revealed deficits consistent with acute neurological event. Stroke protocol was activated and imaging studies were ordered stat.
+
+Admission history and physical documented by the attending physician on call. Review of systems was performed and pertinent positives and negatives noted. Past medical history was obtained from patient and available medical records. Surgical history was reviewed and documented. Immunization history was updated and recorded in the patient chart.
+
+Informed consent was obtained and documented prior to the procedure. Risks, benefits, and alternatives were explained in detail to the patient. Patient had opportunity to ask questions and all questions were answered. Patient verbalized understanding and signed the consent form voluntarily. Witness signature was obtained and form was filed in the medical record.
+
+Advance directive status was reviewed and documented upon admission. Patient confirmed the existence of a healthcare power of attorney. Living will preferences were discussed and respected in the care plan. Code status was clarified and documented per patient wishes. Palliative care consultation was offered and information was provided.
+
+Quality improvement documentation reflects adherence to clinical care pathways. Core measures compliance was reviewed and documented as appropriate. Patient safety checklists were completed at designated intervals. Adverse event reporting protocols were followed as required by policy. Peer review process was initiated for identified quality concerns.
+
+Infection control precautions were implemented as clinically indicated. Contact precautions were maintained throughout the hospital admission. Personal protective equipment was utilized appropriately by all healthcare staff. Environmental cleaning protocols were followed per institutional policy. Patient and visitor education regarding hand hygiene was provided.
+
+Insurance authorization was obtained prior to scheduled elective procedure. Prior authorization documentation was completed and submitted timely. Insurance coverage was verified and benefits were explained to the patient. Copayment and deductible information was communicated to the patient. Financial assistance programs were discussed as applicable to patient situation.
+
+Referral documentation was completed and transmitted to the consulting specialist. Clinical summary and pertinent test results were included in the referral packet. Urgency of consultation was clearly communicated in the referral request. Appointment was scheduled and confirmation was provided to the referring provider. Care coordination between primary care and specialist was documented.
+
+Transfer summary was prepared for patient being transferred to a rehabilitation facility. Summary included current medical status, active diagnoses, and ongoing treatment plan. Medication list was reconciled and included with transfer documentation. Functional status and therapy goals were communicated to the receiving facility. Report was provided to the accepting healthcare team prior to transfer.
+
+Outpatient clinic visit note documents chief complaint of persistent lower back pain. Duration and characteristics of pain were documented in detail. Previous treatments and their effectiveness were reviewed. Physical examination of the musculoskeletal system was performed and documented. Diagnostic imaging was ordered to further evaluate the clinical presentation.
+
+Preventive care documentation includes completion of age-appropriate screening studies. Mammography results were reviewed and communicated to the patient. Colonoscopy was recommended based on age and risk factors. Vaccinations were reviewed and updated as indicated by current guidelines. Cancer screening history was documented and future screening schedule was established.
+
+Telemedicine visit documentation reflects the platform used and technical quality of the visit. Patient consent for telehealth services was obtained and documented. Chief complaint was addressed via video conference with satisfactory clinical assessment. Prescriptions were transmitted electronically to the patient-designated pharmacy. Plan was documented and patient was instructed to follow up as clinically indicated.
+
+Mental health screening was completed using validated assessment tools. Depression screening score was documented and clinical significance noted. Anxiety screening results were reviewed and appropriate referrals were placed. Substance use screening was performed and results documented per protocol. Mental health resources and crisis line information were provided to the patient.
+
+Allergy documentation was reviewed and updated at each clinical encounter. Allergy reactions were characterized as to type and severity. Medication substitutions were made based on documented allergy history. Patient was reminded to inform all healthcare providers of known allergies. Allergy alert wristband was applied and presence confirmed by nursing staff.
+
+Growth and development documentation for pediatric patient was completed. Height and weight measurements were plotted on standard growth charts. Developmental milestones were assessed and documented as age appropriate. Vision and hearing screening was performed as part of the well-child visit. Immunization schedule was reviewed and all due vaccinations were administered.
+
+Geriatric assessment was completed for older adult patient. Cognitive function was assessed using standardized screening instrument. Fall risk assessment was performed and risk level documented. Polypharmacy review was completed and medication regimen was optimized. Functional status and activities of daily living were assessed and documented.
+
+Pre-operative assessment was completed prior to scheduled surgical procedure. Anesthesia risk was evaluated and classified by the anesthesia team. Pre-operative laboratory studies were ordered and results reviewed. Surgical site marking was performed and confirmed by the operative team. Pre-operative antibiotics were administered within the recommended time frame.
+
+Post-operative nursing assessment documented vital signs and pain levels. Surgical site was inspected and wound integrity was confirmed. Urinary output was monitored and documented per post-operative orders. Patient was encouraged to ambulate as tolerated per surgical protocol. Nausea management was provided and patient achieved adequate pain control.
+
+Obstetric documentation includes gestational age and estimated due date. Prenatal visit schedule was reviewed and upcoming appointments confirmed. Maternal vital signs and fetal heart tones were assessed and documented. Urinalysis results were reviewed for signs of urinary tract infection. Patient education regarding prenatal care was provided at each visit.
+
+Oncology clinic note documents current treatment cycle and chemotherapy protocol. Pre-medication regimen was administered prior to chemotherapy infusion. Patient tolerance to treatment was assessed and side effects were documented. Laboratory values were reviewed to confirm eligibility for current treatment cycle. Supportive care measures were discussed and implemented as appropriate.
+
+Psychiatric admission note documents presenting symptoms and precipitating factors. Mental status examination was completed and findings documented in detail. Risk assessment for safety was performed including assessment for self-harm. Psychiatric diagnosis was formulated based on clinical assessment and history. Individualized treatment plan was developed with patient participation and consent.
+
+Rehabilitation medicine documentation reflects functional goals and progress toward discharge. Therapy sessions completed and patient participation level was documented. Functional improvement was measured and compared to baseline assessment. Equipment needs were identified and procurement was initiated. Anticipated discharge date was communicated to the multidisciplinary team.
