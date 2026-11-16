@@ -443,7 +443,34 @@ def milestone_3(input_text: str = "patient presented", k: int = 5) -> list[str]:
     return suggest_next_words(model, input_text, k=k)
 
 
-# --- Milestone 4: Create a CLI for users to interact with the suggestion engine.
-# Hint: Command-line argument parsing
-def milestone_4():  # TODO(milestone 4)
-    raise NotImplementedError("TODO(milestone 4)")
+# ---------------------------------------------------------------------------
+# Milestone 4: Create a CLI for users to interact with the suggestion engine.
+# ---------------------------------------------------------------------------
+
+
+def milestone_4(text: str = "patient presented", k: int = 5, n: int = 2) -> dict:
+    """Entry point for Milestone 4.
+
+    Demonstrates the full CLI pipeline end-to-end: trains the model,
+    fetches suggestions, and generates a continuation — exactly what
+    the two CLI sub-commands (``suggest`` and ``generate``) do.
+
+    Parameters
+    ----------
+    text:
+        Input phrase to suggest next words for.
+    k:
+        Number of next-word suggestions to return.
+    n:
+        N-gram order for the model.
+
+    Returns
+    -------
+    dict
+        ``{"suggestions": [...], "generated": "..."}`` so tests can
+        inspect both outputs without touching stdout.
+    """
+    model = milestone_2(n=n)
+    suggestions = suggest_next_words(model, text, k=k)
+    generated = generate_text(model, text, num_words=k)
+    return {"suggestions": suggestions, "generated": generated}

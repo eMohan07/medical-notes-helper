@@ -204,7 +204,74 @@ def test_milestone_3():
     )
 
 
+# ---------------------------------------------------------------------------
 # Milestone 4: Create a CLI for users to interact with the suggestion engine.
-@pytest.mark.skip(reason="remove this line when you start milestone 4")
+# ---------------------------------------------------------------------------
 def test_milestone_4():
-    raise NotImplementedError("write the test for milestone 4")
+    """Milestone 4: CLI sub-commands parse correctly and produce valid output."""
+    from app.cli import main, _build_parser
+
+    # --- 1. milestone_4() returns a dict with the right keys ---------------
+    result = milestone_4("patient presented", k=5, n=2)
+    assert isinstance(result, dict), "milestone_4() must return a dict"
+    assert "suggestions" in result, "result must have a 'suggestions' key"
+    assert "generated"   in result, "result must have a 'generated' key"
+
+    # --- 2. suggestions list is non-empty and contains strings -------------
+    suggestions = result["suggestions"]
+    assert isinstance(suggestions, list) and len(suggestions) > 0
+    assert all(isinstance(w, str) for w in suggestions)
+
+    # --- 3. generated is a non-empty string --------------------------------
+    generated = result["generated"]
+    assert isinstance(generated, str) and len(generated) > 0
+
+    # --- 4. hello command still works (smoke test) -------------------------
+    main(["hello"])   # would raise SystemExit on failure
+
+    # --- 5. suggest command prints numbered suggestions --------------------
+    main(["suggest", "patient presented"])   # default k=5, n=2
+
+    # --- 6. suggest --top changes how many lines are printed ---------------
+    main(["suggest", "patient presented", "--top", "3"])
+
+    # --- 7. generate command prints a continuation string ------------------
+    main(["generate", "patient was admitted"])
+
+    # --- 8. generate --words controls output length ------------------------
+    main(["generate", "patient", "--words", "4"])
+
+    # --- 9. --ngram flag is accepted for both sub-commands -----------------
+    main(["suggest", "patient", "--ngram", "3"])
+    main(["generate", "patient", "--ngram", "3", "--words", "5"])
+
+    # --- 10. suggest output captured and validated -------------------------
+    import io, contextlib
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        main(["suggest", "patient presented", "--top", "3"])
+    output = buf.getvalue()
+    assert "1." in output, "suggest must number suggestions starting at 1"
+    assert "2." in output
+    assert "3." in output
+
+    # --- 11. generate output is a space-joined string of words -------------
+    buf2 = io.StringIO()
+    with contextlib.redirect_stdout(buf2):
+        main(["generate", "patient presented", "--words", "5"])
+    gen_output = buf2.getvalue().strip()
+    gen_words = gen_output.split()
+    # seed "patient presented" = 2 words + 5 generated = 7
+    assert len(gen_words) == 7, (
+        f"Expected 7 words in generated output, got {len(gen_words)}: '{gen_output}'"
+    )
+
+    # --- 12. parser --help doesn't crash (exits 0) -------------------------
+    with pytest.raises(SystemExit) as exc_info:
+        _build_parser().parse_args(["--help"])
+    assert exc_info.value.code == 0
+
+    # --- 13. unknown command exits with non-zero code ----------------------
+    with pytest.raises(SystemExit) as exc_info:
+        main(["unknown_command_xyz"])
+    assert exc_info.value.code != 0
